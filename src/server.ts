@@ -24,7 +24,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     // let result = await filterImageFromURL(image_url);
     // let {image_url} = req.query;
     if( !image_url ){
-      res.status(400).send("Invalid Request!, please include an image url")
+      return res.status(400).send("Invalid Request!, please include an image url")
     }
     let result:string = await filterImageFromURL(image_url);
     res.status(200).sendFile(result, () => {deleteLocalFiles([result])});
